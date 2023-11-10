@@ -1,41 +1,44 @@
 import java.util.Scanner;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 public class App {
-
-    public static String ch = "";
-
     public static void main(String[] args) throws Exception {
-        int q, a, b, n;
-        a = 0;
-        b = 0;
-        n = 0;
 
         Scanner input = new Scanner(System.in);
+        int x = input.nextInt();
+        System.out.println(ToBinary(x));
+        
 
-        System.out.println("enter query q");
-        q = input.nextInt();
-
-        for (int i = 0; i < q; i++) {
-
-            a = input.nextInt();
-            b = input.nextInt();
-            n = input.nextInt();
-            ch = SumSeq(a, b, n) + "\n";
-        }
-
-        System.out.printf(ch);
-        input.close();
     }
 
-    public static String SumSeq(int a, int b, int n) {
-        int s = a;
-        for (int i = 0; i < n; i++) {
+    public static String ToBinary(int x) {
 
-            s = (b * (int) Math.pow(2, i)) + s;
+        String binary = "";
+        int i = 0;
+        int r = 0;
 
-            ch = ch + " " + s;
+        while (x != 0) {
+            r = x % 2;
+            x = x / 2;
+            binary = binary + r;
+            i++;
+            System.out.println(binary);
+        }
+
+        return Reverse(binary);
+    }
+
+    public static String Reverse(String ch) {
+        String reverse = "";
+
+        for (int i = 1; i <= ch.length(); i++) {
+
+            reverse = reverse + ch.charAt(ch.length() - i);
 
         }
-        return ch;
+
+        return reverse;
     }
+
 }
