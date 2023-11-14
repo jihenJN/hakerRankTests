@@ -1,0 +1,128 @@
+<script>
+
+    /*
+     Data types in java script are seven 
+     string 
+     number 
+     boolean
+     null : the variable is set to nothing an intentional lack of value 
+     undefined : a variable that has not been assigned a value yet
+     object
+     symbol
+    ---------------------------------------------------------------
+     there are 3 ways to declare a variable X
+     var   X   Function Scope accessible throughout the function in which they are defined.
+     let   X   block scope limited to the block (between curly braces) in which they are defined, such as loops or conditional statements.
+     const X can not be changes if we do X= new value console will display error
+
+    ------------------------------------------------------------------
+     declaring and assign a variable 
+     var b = 2 ;
+     its is recommended to add ; 
+     here we are declaring and assigning in one line 
+     = is the tool assignement we are not cheking if b = 2 we are assigning the value 2 to b
+    -----------------------------------------------------------------
+     Variable are case sensitive capitalisation matters
+     var JIHEN ;
+     jihen= "its me ";
+    ----------------------------------------------------------------
+    understand string immutability
+    once a string is created, it cannot be changed. Any operation that appears to modify a string actually creates a new string.
+    --------------------------------------------------------------
+    Nest array 
+    var nestArray =[["jihen",20],["nehij",02]]
+    -------------------------------------------------------------
+    manipulate arrays:
+    ***push() function for arrays  to append element to the end of array 
+    nestArray.push(["dog",3]);
+    output: nestArray =[["jihen",20],["nehij",02],["dog",3]]
+
+    ***pop() function for arrays  to remove element at the end of array 
+    nestArray.pop()
+    output: nestArray =[["jihen",20],["nehij",02]]
+
+    ***shift() function for arrays  to remove element at the 1rst of array 
+     output: nestArray =[["nehij",02]]
+
+     ***unshift() function for arrays  to append element to the start of array 
+    nestArray.unshift(["camel",7]);
+    output: nestArray =[["camel",7],["nehij",02]]
+    -------------------------------------------------------------------------------
+    Scope refers to the visibility of variables 
+    Variables which are defined out side a function block {} have global scope 
+    ***Global scope means that variable can be seen anywhere in your JavaScript code 
+    ***Local scope means that variable is only visible inside the function
+    ***Global scope vs Local scope: it is possible that i have both local and global variable 
+    with the same name (see example)
+    -------------------------------------------------------------------------------
+    Stand in Line 
+    here we have an array we want to add an item and delete the first one 
+    as the scenario of a queue ( see example)
+
+
+    */
+    var myName = "Jihen"
+
+    console.log("name length: " + myName.length);
+    console.log("name 1rst letter: " + myName[0]);
+    console.log("name last letter: " + myName[myName.length - 1]);
+
+    function ArrangeWords(pronoun, adj, verb, adv) {
+        let result = "";
+
+        result += "The " + adj + " " + pronoun + " " + verb + " " + " to the store " + adv;
+        return result;
+    }
+
+    console.log(ArrangeWords("girl", "pretty", "walks", "quickly"))
+
+    var nestArray = [["jihen", 20], ["nehij", 2]];
+
+    console.log(nestArray[1])
+
+    nestArray[0] = ["omar", -5];
+    nestArray.push(["dog", 3]);
+    console.log(nestArray)
+    nestArray.pop();
+    console.log(nestArray);
+    nestArray.shift();
+    console.log(nestArray)
+
+    function ReusableCode() {
+        console.log("heya world");
+    }
+
+
+    //calling ReusableCode () function 
+    ReusableCode();
+    ReusableCode();
+    ReusableCode();
+
+    // Global scope vs Local scope example
+    var myOutfit = "tshirt";
+    function whatIwear() {
+        return myOutfit;
+    }
+    function whatIwear2() {
+        var myOutfit = "dress"
+        return myOutfit;
+    }
+
+    console.log("without myoutfit variable locally " + whatIwear());
+    console.log("with myoutfit variable locally " + whatIwear2());
+    console.log(myOutfit);
+
+
+    //Stand in line example 
+    function nextInLine(array, item) {
+        array.push(item)
+        return array.shift();
+
+    }
+    testarray = [1, 2, 3, 4];
+
+    console.log("Before " + JSON.stringify(testarray));
+    console.log(nextInLine(testarray, 5));
+    console.log("After: " + JSON.stringify(testarray));;
+
+</script>
